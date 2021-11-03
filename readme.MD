@@ -30,6 +30,10 @@
 
 ### - `docker save` saves an image to a tar archive stream to STDOUT with all parent layers, tags & versions (as of 0.7).
 
+### - `docker image prune` remove unused images.
+
+### - `docker image prune -a` Remove all unused images, even if they are referenced by a container.
+
 <br/>
 <br/>
 
@@ -61,6 +65,7 @@
 ### - `docker rm` deletes a container.
 
 ### - `docker update` updates a container's resource limits.
+### - `docker container prune` removes stopped containers.
 
 <br/>
 <br/>
@@ -180,7 +185,7 @@ VOLUME creates a mount point for externally mounted volumes or other containers.
 <br/>
 <br/>
 
-# ✨  docker commands
+# ✨ docker commands
 
 ## creating images
 

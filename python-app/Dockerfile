@@ -13,3 +13,6 @@ CMD [ "python", "randomNumber.py" ]
 #  docker run -it python_on_docker 
 
 #  where -it,  interactive mode
+
+# read more about docker run command
+# https://progressivecoder.com/run-docker-container-in-interactive-mode/
