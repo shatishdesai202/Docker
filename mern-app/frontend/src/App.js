@@ -1,0 +1,91 @@
+import React, { useEffect, useState } from "react";
+import "./App.css";
+
+function App() {
+  const [allTodo, setAllTodo] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
+  const getAllTodos = async () => {
+    fetch("http://localhost:8080/api")
+      .then((res) => res.json())
+      .then((data) => {
+        setAllTodo(data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getAllTodos();
+  }, []);
+
+  const handleSubmitButton = () => {
+    setInputValue("");
+    if (inputValue !== "") {
+      fetch("http://localhost:8080/api/add-todo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          task: inputValue,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          getAllTodos();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
+  const handleDeleteTodo = (id) => {
+    console.log(id);
+    if (id) {
+      fetch(`http://localhost:8080/api/delete-todo/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          getAllTodos();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
+  return (
+    <div className="App">
+      <div className="mt-5 gap-4 justify-content-center d-flex">
+        <input
+          className="col-4"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <button className="col-2" onClick={handleSubmitButton}>
+          submit
+        </button>
+      </div>
+      <div>
+        <ul className="p-5">
+          {allTodo.map((todo) => (
+            <li
+              className="list-group-item list-group-item-action list-group-item-success mt-2"
+              onClick={() => handleDeleteTodo(todo._id)}
+              key={todo._id}
+            >
+              {todo.task}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export default App;
