@@ -20,13 +20,15 @@ app.use("/api", Router);
 
 mongoose.connect(
   // "mongodb://localhost:27017/docker_example",
-  "mongodb://host.docker.internal:27017/docker_example",
+  // "mongodb://host.docker.internal:27017/docker_example",
+  "mongodb://mongoDB:27017/docker_example", // mongoDb container name
+  // "mongodb://a:a@mongoDB:27017/docker_example?authSource=admin", // add usr and pwd through env varianbe
   {
     useNewUrlParser: true,
   },
   () => console.log("connected to mongoDB")
 );
 
-app.listen(8080, () => {
-  console.log("Server is running at port 8080");
+app.listen(80, () => {
+  console.log("Server is running at port 80");
 });

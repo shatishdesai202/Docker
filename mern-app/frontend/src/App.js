@@ -6,7 +6,7 @@ function App() {
   const [inputValue, setInputValue] = useState("");
 
   const getAllTodos = async () => {
-    fetch("http://localhost:8080/api")
+    await fetch("http://localhost/api")
       .then((res) => res.json())
       .then((data) => {
         setAllTodo(data);
@@ -18,10 +18,10 @@ function App() {
     getAllTodos();
   }, []);
 
-  const handleSubmitButton = () => {
+  const handleSubmitButton = async () => {
     setInputValue("");
     if (inputValue !== "") {
-      fetch("http://localhost:8080/api/add-todo", {
+      await fetch("http://localhost/api/add-todo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,10 +40,10 @@ function App() {
     }
   };
 
-  const handleDeleteTodo = (id) => {
+  const handleDeleteTodo = async (id) => {
     console.log(id);
     if (id) {
-      fetch(`http://localhost:8080/api/delete-todo/${id}`, {
+      await fetch(`http://localhost/api/delete-todo/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
