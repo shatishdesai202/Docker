@@ -19,7 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", Router);
 
 mongoose.connect(
-  "mongodb://localhost:27017/docker_example",
+  // "mongodb://localhost:27017/docker_example",
+  "mongodb://host.docker.internal:27017/docker_example",
   {
     useNewUrlParser: true,
   },
