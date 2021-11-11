@@ -23,3 +23,8 @@ docker run --rm -d --name mongoDB -v data:/data/db --network todo-network mongo
 add password in mongo
 
 docker run  --name mongoDB -v data:/data/db --rm --network todo-network  -e MONGO_INITDB_ROOT_USERNAME=a -e MONGO_INITDB_ROOT_PASSWORD=a mongo
+
+----
+live source code updare in docker container(not -working)
+
+docker run --name todo-backend-conatiner -v "C:/Users/DELL/Desktop/Docker/mern-app/backend/:/app" -v logs:/app/logs -v /app/node_modules --rm -p 80:80 -it --network todo-network todo-backend-image

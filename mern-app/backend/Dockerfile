@@ -1,12 +1,14 @@
 FROM node:latest
 
-WORKDIR ./app
+RUN npm install --global nodemon
 
-COPY package.json /app
+WORKDIR /app
 
-COPY . /app
+COPY package.json .
 
 RUN npm install
+
+COPY . .
 
 EXPOSE 80
 
