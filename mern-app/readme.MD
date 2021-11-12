@@ -38,4 +38,4 @@ docker run  --name mongoDB -v data:/data/db --rm --network todo-network  -e MONG
 docker run --name todo-backend-conatiner -v "C:/Users/DELL/Desktop/Docker/mern-app/backend/:/app" -v logs:/app/logs -v /app/node_modules --rm -p 80:80 -it --network todo-network todo-backend-image
 
 ### live source code updare in frontend
-docker run -v "C:/Users/DELL/Desktop/Docker/mern-app/frontend/src:app/src" --name todo-frontend-container --rm -p 3000:3000 -it todo-frontend-image
+docker run -v "C:/Users/DELL/Desktop/Docker/mern-app/frontend/src:app/src" --name todo-frontend-container --rm -p 3000:3000 -it todo-frontend-image  
