@@ -1,0 +1,20 @@
+Nodes 
+=> nodes are physical or virtual machine with a certain hardware capacity which host one or multiple pods and communicate with the cluster
+
+master node
+=> cluster control plane, managing the pods across worker nodes
+
+worker node
+=> host pods, running App container (+ resources)
+
+Clustor
+=> A set of node machine which are running the containerized Application (Worker node) or control other nodex (master node)
+
+pods
+=> Pods hold the actual  running App container + their required resource (e.g. volumes)  
+
+containers
+=> normal Docker container
+
+services
+=> logical sets (group of pods) with a unique, Pod and container independent IP address
