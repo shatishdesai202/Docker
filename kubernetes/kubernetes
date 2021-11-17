@@ -1,4 +1,4 @@
-Nodes 
+Nodes
 => nodes are physical or virtual machine with a certain hardware capacity which host one or multiple pods and communicate with the cluster
 
 master node
@@ -11,10 +11,40 @@ Clustor
 => A set of node machine which are running the containerized Application (Worker node) or control other nodex (master node)
 
 pods
-=> Pods hold the actual  running App container + their required resource (e.g. volumes)  
+=> Pods hold the actual running App container + their required resource (e.g. volumes)
 
 containers
 => normal Docker container
 
 services
 => logical sets (group of pods) with a unique, Pod and container independent IP address
+
+---*-> Kubernetes work with objects like.. Pods, Services, Deployments, Volums
+
+Commands
+---
+minikube status (cmd-Run as administrator)
+
+minikube start --driver=hyperv (cmd-Run as administrator)
+
+kubectl -> always execute local, it is command we use send instructions to kubernetes cluster
+
+new deployment object through kubectl
+-----------------
+kubectl create -- show all commands
+
+kubectl create deployment <deployment-name> --image=<image-name>
+
+kubectl get deployment // show all deployments
+
+kubectl get pods // show all pods
+
+minikube dashboard // show dashboard
+
+kubectl get services // show all services
+
+kubectl expose deployment <deployment-name> --type=LoadBalancer --port=8080 // post name same as expose 
+
+minikube service <service-name> // show service (cmd-Run as administrator)
+
+kubectl delete service my-service // delete service
